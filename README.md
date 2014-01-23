@@ -6,31 +6,18 @@ serial device (/dev/tty.*.usbserial) <---> TCP Socket
 * each client can read/write.
 * forwards strings from serial device to all socket clients.
 * split by '\n'
+* testing on Mac, Linux and Windows.
 
 Dependencies
 ============
-* ruby-serialport (build from source code)
-* eventmachine (rubygem)
+* serialport, eventmachine, ArgsParser (rubygem)
 * your serial device (arduino, mbed ...)
 
 
-Install ruby-serialport
------------------------
+Install gems
+------------
 
-    % wget http://rubyforge.org/frs/download.php/72/ruby-serialport-0.6.tar.gz
-    % tar -zxvf ruby-serialport-0.6.tar.gz
-    % cd ruby-serialport-0.6
-    % ruby extconf.rb
-    % make
-    % sudo make install
-
-ruby-serialport 0.7 is not work.
-
-
-Install eventmachine
---------------------
-
-    % gem install eventmachine
+    % gem install eventmachine serialport ArgsParser
 
 
 Run
@@ -39,6 +26,10 @@ Run
 Connect serial device, then
 
     % ./serial-socket-gateway /dev/tty.your-usbdevice
+
+or
+
+    % ./serial-socket-gateway COM1
 
 
 Use
